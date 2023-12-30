@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Оберіть мову, яку ви знаєте:</h2>
+
+    <form id="languageForm">
+        <label>
+            <input type="radio" name="language" value="html"> HTML
+        </label>
+        <label>
+            <input type="radio" name="language" value="css"> CSS
+        </label>
+        <label>
+            <input type="radio" name="language" value="js"> JavaScript
+        </label>
+        <label>
+            <input type="radio" name="language" value="php"> PHP
+        </label>
+
+        <br><br>
+
+        <input type="button" value="Вибрати" onclick="showSelectedLanguage()">
+
+    </form>
+
+    <p id="selectedLanguage"></p>
+
+    <script>
+        function showSelectedLanguage() {
+            var form = document.getElementById("languageForm");
+            var selectedLanguage = "";
+
+            for (var i = 0; i < form.language.length; i++) {
+                if (form.language[i].checked) {
+                    selectedLanguage = form.language[i].value;
+                    break;
+                }
+            }
+
+            if (selectedLanguage !== "") {
+                document.getElementById("selectedLanguage").innerHTML = "Ви обрали мову: " + selectedLanguage;
+            } else {
+                document.getElementById("selectedLanguage").innerHTML = "Будь ласка, оберіть мову.";
+            }
+        }
+    </script>
+
+</body>
+</html>
